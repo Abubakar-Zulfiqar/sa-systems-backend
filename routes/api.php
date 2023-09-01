@@ -32,7 +32,7 @@ Route::post('/token', [AuthController::class, 'token']);
 
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
-Route::get('/products', [ProductsController::class, 'index']);
+Route::post('/products', [ProductsController::class, 'show']);
 Route::get('/services', [ServicesController::class, 'index']);
 Route::post('/demo', [DemoController::class, 'show']);
 Route::get('/plot', [PlotController::class, 'index']);

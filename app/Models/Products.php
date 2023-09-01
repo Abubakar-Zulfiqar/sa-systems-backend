@@ -26,5 +26,6 @@ class Products extends Model
         'description05',
         'title06',
         'description06',
+        'page',
     ];
 }
