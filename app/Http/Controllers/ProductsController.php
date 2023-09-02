@@ -17,7 +17,8 @@ class ProductsController extends Controller
     public function show(Request $request)
     {
         $validator = Validator::make(['page' => $request->page], [
-            'page' => 'required|in:Products,Real Estate Management,HR Management,Point of Sale System,Inventory Management Software,Procurement Management System,Accounting Management',
+            'page' => 'required|in:Products,Real Estate Management,HR Management,Point of Sale System,
+            Inventory Management Software,Procurement Management System,Accounting Management',
         ]);
 
         // Check if validation fails
@@ -36,8 +37,8 @@ class ProductsController extends Controller
 
     public function update(Request $request)
     {
-        $demo = Products::find($request->id);
-        $demo->update($request->all());
+        $products = Products::find($request->id);
+        $products->update($request->all());
         return response()->json('Data Updated');
     }
 }
