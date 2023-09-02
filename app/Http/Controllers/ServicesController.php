@@ -17,8 +17,7 @@ class ServicesController extends Controller
     public function show(Request $request)
     {
         $validator = Validator::make(['page' => $request->page], [
-            'page' => 'required|in:Services,Design UI/ UX,Web Development,Mobile Applications,
-            Custom Web Applications,Game Development,AR/VR Applications',
+            'page' => 'required|in:Services,Design UI/ UX,Web Development,Mobile Applications,Custom Web Applications,Game Development,AR/VR Applications',
         ]);
 
         // Check if validation fails
