@@ -8,6 +8,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\EmailController;
 
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -31,6 +32,8 @@ Route::group(['middleware' => 'sanctum_token'], function () {
     Route::post('/update-services/', [ServicesController::class, 'update']);
     Route::post('/update-demo/', [DemoController::class, 'update']);
 });
+
+Route::post('/send-email', [EmailController::class, 'sendEmail']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
