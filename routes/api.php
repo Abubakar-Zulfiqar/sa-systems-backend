@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\BlogController;
 
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -24,6 +25,9 @@ Route::get('/about', [AboutController::class, 'index']);
 Route::post('/products', [ProductsController::class, 'show']);
 Route::post('/services', [ServicesController::class, 'show']);
 Route::post('/demo', [DemoController::class, 'show']);
+Route::get('/blogs', [BlogController::class, 'index']);
+Route::get('/blogs/{id}', [BlogController::class, 'show']);
+Route::post('/create-blog', [BlogController::class, 'store']);
 
 Route::group(['middleware' => 'sanctum_token'], function () {
     Route::post('/update-home/', [HomeController::class, 'update']);
