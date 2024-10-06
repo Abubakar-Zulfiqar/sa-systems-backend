@@ -40,4 +40,27 @@ class BlogController extends Controller
 
         return response()->json($blog, 200);
     }
+
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'content' => 'required|string',
+        ]);
+
+        $blog = Blog::find($id);
+
+        if (!$blog) {
+            return response()->json(['message' => 'Blog not found'], 404);
+        }
+
+        $blog->update([
+            'title' => $validatedData['title'],
+            'description' => $validatedData['description'],
+            'content' => $validatedData['content'],
+        ]);
+
+        return response()->json($blog, 200);
+    }
 }

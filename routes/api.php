@@ -27,6 +27,7 @@ Route::post('/services', [ServicesController::class, 'show']);
 Route::post('/demo', [DemoController::class, 'show']);
 Route::get('/blogs', [BlogController::class, 'index']);
 Route::get('/blogs/{id}', [BlogController::class, 'show']);
+Route::put('/blogs/{id}', [BlogController::class, 'update']);
 Route::post('/create-blog', [BlogController::class, 'store']);
 
 Route::group(['middleware' => 'sanctum_token'], function () {
